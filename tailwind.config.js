@@ -17,6 +17,12 @@ export default {
         white: "hsl(0, 0%, 100%)",
       },
     },
+    extend: {
+      backgroundImage: {
+        "sidebar-desktop": "url('bg-sidebar-desktop.svg')",
+        "sidebar-mobile": "url('bg-sidebar-mobile.svg')",
+      },
+    },
   },
 
   plugins: [],

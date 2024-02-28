@@ -14,6 +14,8 @@ function useMultiStepForm(steps: ReactElement[]) {
   };
 
   const goto = (index: number) => {
+    if (index < 0 || index >= steps.length) return;
+    if (index > currentStepIndex) return;
     setCurrentStepIndex(index);
   };
 
