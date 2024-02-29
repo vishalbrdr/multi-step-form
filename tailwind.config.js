@@ -8,7 +8,7 @@ export default {
         "purplish-blue": "hsl(243, 100%, 62%)",
         "pastel-blue": "hsl(228, 100%, 84%)",
         "light-blue": "hsl(206, 94%, 87%)",
-        "strawberryr-red": "hsl(354, 84%, 57%)",
+        "strawberry-red": "hsl(354, 84%, 57%)",
       },
       neutral: {
         lightGray: "hsl(229, 24%, 87%)",

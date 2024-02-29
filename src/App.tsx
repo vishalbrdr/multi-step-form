@@ -1,14 +1,13 @@
 import SideBar from "./components/SideBar";
+import PersonalInfoForm from "./components/steps/PersonalInfoForm";
 import useMultiStepForm from "./hooks/useMultiStepForm";
-import { useStore } from "./hooks/useStore";
 
 export default function App() {
-  const { formData } = useStore();
-  const { step, currentStepIndex } = useMultiStepForm([<div></div>]);
+  const { step, currentStepIndex } = useMultiStepForm([<PersonalInfoForm />]);
   return (
-    <div className="relative border p-2 rounded-xl h-[35rem]">
+    <div className="relative bg-neutral-white flex p-2 rounded-xl h-[35rem]">
       <SideBar currentStepIndex={currentStepIndex} />
-      <form>{step}</form>
+      <div className="max-w-[50rem] flex">{step}</div>
     </div>
   );
 }
