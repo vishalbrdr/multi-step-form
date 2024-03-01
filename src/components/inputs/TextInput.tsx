@@ -15,7 +15,12 @@ type TextInputProps = {
 function TextInput({ label, register, error, placeholder }: TextInputProps) {
   const id = useId();
   return (
-    <div id={id} className="grid text-primary-marine-blue gap-2">
+    <div
+      id={id}
+      className={`grid text-primary-marine-blue gap-2 ${
+        error && "animate-wiggle"
+      }`}
+    >
       <label htmlFor={id} className="flex">
         <span className="capitalize">{label}</span>
         <span className="text-primary-strawberry-red ml-auto">{error}</span>
@@ -23,7 +28,7 @@ function TextInput({ label, register, error, placeholder }: TextInputProps) {
       <input
         {...register(label, { required: true })}
         placeholder={placeholder}
-        className={`font-bold placeholder:font-normal outline-none outline outline-neutral-lightGray placeholder:text-neutral-lightGray focus:outline-primary-purplish-blue py-1 px-2 rounded ${
+        className={`font-medium placeholder:font-normal outline-none outline outline-neutral-lightGray placeholder:text-neutral-lightGray focus:outline-primary-purplish-blue py-1 px-2 rounded ${
           error && "outline-primary-strawberry-red"
         }`}
         type="text"

@@ -8,7 +8,7 @@ type FormData = {
   };
   plan: {
     name: "arcade" | "advanced" | "pro";
-    period: "monthly" | "yearly";
+    billing: "monthly" | "yearly";
   };
   addons: {
     onlineService: boolean;
@@ -29,7 +29,7 @@ const INITIAL_STATE: FormData = {
   },
   plan: {
     name: "arcade",
-    period: "monthly",
+    billing: "monthly",
   },
   addons: {
     onlineService: false,
@@ -38,8 +38,10 @@ const INITIAL_STATE: FormData = {
   },
 };
 
-export const useFormDataStore = create<FormData & Actions>((set) => ({
-  ...INITIAL_STATE,
-  setFormData: (data: Partial<FormData>) =>
-    set((state) => ({ ...state, ...data })),
-}));
+export const useMultiStepFormStore = create<FormData & Actions>((set) => {
+  return {
+    ...INITIAL_STATE,
+    setFormData: (data: Partial<FormData>) =>
+      set((state) => ({ ...state, ...data })),
+  };
+});

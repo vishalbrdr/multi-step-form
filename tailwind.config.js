@@ -22,6 +22,15 @@ export default {
         "sidebar-desktop": "url('bg-sidebar-desktop.svg')",
         "sidebar-mobile": "url('bg-sidebar-mobile.svg')",
       },
+      animation: {
+        wiggle: "wiggle 100ms ease-in-out",
+      },
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-1deg)" },
+          "50%": { transform: "rotate(1deg)" },
+        },
+      },
     },
   },
 

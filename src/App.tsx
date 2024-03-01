@@ -1,13 +1,19 @@
 import SideBar from "./components/SideBar";
 import PersonalInfoForm from "./components/steps/PersonalInfoForm";
+import PlanSelectionForm from "./components/steps/PlanSelection";
 import useMultiStepForm from "./hooks/useMultiStepForm";
 
 export default function App() {
-  const { step, currentStepIndex } = useMultiStepForm([<PersonalInfoForm />]);
+  const multiStepForm = useMultiStepForm([PersonalInfoForm, PlanSelectionForm]);
+
   return (
-    <div className="relative bg-neutral-white flex p-2 rounded-xl h-[35rem]">
-      <SideBar currentStepIndex={currentStepIndex} />
-      <div className="max-w-[50rem] flex">{step}</div>
+    <div className="relative bg-neutral-white flex p-3 rounded-3xl h-[35rem]">
+      <div>
+        <SideBar currentStepIndex={multiStepForm.currentStepIndex} />
+      </div>
+      <div className="flex w-[50vw] px-4 max-w-[35rem] justify-center">
+        <multiStepForm.Step multiStepForm={multiStepForm} />
+      </div>
     </div>
   );
 }

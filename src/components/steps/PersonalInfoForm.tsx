@@ -4,6 +4,8 @@ import TextInput from "../inputs/TextInput";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormFooter from "../FormFooter";
+import { StepProps } from "../../hooks/useMultiStepForm";
+import { useMultiStepFormStore } from "../../store/multiStepformStore";
 
 const personalInfoSchema = z.object({
   name: z.string().min(2, "This field is required"),
@@ -13,18 +15,21 @@ const personalInfoSchema = z.object({
 
 type PersonalInfo = z.infer<typeof personalInfoSchema>;
 
-function PersonalInfoForm() {
+function PersonalInfoForm({ multiStepForm }: { multiStepForm: StepProps }) {
   const heading = "Personal Info";
   const subText = "Please provide your name, email, and phone number.";
+  const { setFormData, personalInfo } = useMultiStepFormStore();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<PersonalInfo>({
+    defaultValues: personalInfo,
     resolver: zodResolver(personalInfoSchema),
   });
   function onSubmit(data: PersonalInfo) {
-    console.log(data);
+    setFormData({ personalInfo: data });
+    multiStepForm.next();
   }
   return (
     <FormWrapper heading={heading} subText={subText}>
@@ -52,7 +57,7 @@ function PersonalInfoForm() {
             placeholder="e.g. +91 987 6543 210"
           />
         </div>
-        <FormFooter />
+        <FormFooter multiStepForm={multiStepForm} />
       </form>
     </FormWrapper>
   );

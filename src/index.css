@@ -8,5 +8,5 @@ body {
   display: flex;
   padding-top: 2rem;
   justify-content: center;
-  @apply bg-primary-light-blue;
+  @apply bg-neutral-magnolia;
 }
