@@ -1,10 +1,15 @@
 import SideBar from "./components/SideBar";
+import AddOnsPickerForm from "./components/steps/AddOnsPickerForm";
 import PersonalInfoForm from "./components/steps/PersonalInfoForm";
 import PlanSelectionForm from "./components/steps/PlanSelection";
 import useMultiStepForm from "./hooks/useMultiStepForm";
 
 export default function App() {
-  const multiStepForm = useMultiStepForm([PersonalInfoForm, PlanSelectionForm]);
+  const multiStepForm = useMultiStepForm([
+    PersonalInfoForm,
+    PlanSelectionForm,
+    AddOnsPickerForm,
+  ]);
 
   return (
     <div className="relative bg-neutral-white flex p-3 rounded-3xl h-[35rem]">

@@ -11,10 +11,11 @@ type FormData = {
     billing: "monthly" | "yearly";
   };
   addons: {
-    onlineService: boolean;
-    largerStorage: boolean;
-    customizableProfile: boolean;
-  };
+    name: string;
+    description: string;
+    price: { yearly: string; monthly: string };
+    isSelected: boolean;
+  }[];
 };
 
 type Actions = {
@@ -31,11 +32,26 @@ const INITIAL_STATE: FormData = {
     name: "arcade",
     billing: "monthly",
   },
-  addons: {
-    onlineService: false,
-    largerStorage: false,
-    customizableProfile: false,
-  },
+  addons: [
+    {
+      name: "Online service",
+      description: "Access to multiplayer games",
+      price: { yearly: "$10/yr", monthly: "$1/mo" },
+      isSelected: false,
+    },
+    {
+      name: "Larger storage",
+      description: "Extra 1TB of cloud save",
+      price: { yearly: "$20/yr", monthly: "$2/mo" },
+      isSelected: false,
+    },
+    {
+      name: "Customizable profile",
+      description: "Custom theme on your profile",
+      price: { yearly: "$20/yr", monthly: "$2/mo" },
+      isSelected: false,
+    },
+  ],
 };
 
 export const useMultiStepFormStore = create<FormData & Actions>((set) => {
