@@ -5,6 +5,7 @@ import RadioSelect from "../inputs/RadioSelect";
 import ArcadeIcon from "../../assets/images/icon-arcade.svg";
 import AdvancedIcon from "../../assets/images/icon-advanced.svg";
 import ProIcon from "../../assets/images/icon-pro.svg";
+import BillingSwitch from "../inputs/BillingSwitch";
 
 const planOptions = [
   {
@@ -43,6 +44,9 @@ function PlanSelectionForm({ multiStepForm }: { multiStepForm: StepProps }) {
             {planOptions.map((p) => (
               <RadioSelect plan={p} key={p.name} />
             ))}
+          </div>
+          <div>
+            <BillingSwitch />
           </div>
         </div>
         <FormFooter multiStepForm={multiStepForm} />

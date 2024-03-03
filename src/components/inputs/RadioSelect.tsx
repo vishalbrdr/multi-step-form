@@ -41,7 +41,7 @@ function RadioSelect({ plan }: RadioSelectProps) {
           <p className="text-neutral-lightGray">
             {billing === "monthly" ? plan.price.perMonth : plan.price.perYear}
           </p>
-          {billing === "monthly" && (
+          {billing === "yearly" && (
             <p className="text-xs text-primary-marine-blue">2 months free</p>
           )}
         </div>

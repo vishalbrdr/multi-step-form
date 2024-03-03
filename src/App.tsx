@@ -11,7 +11,7 @@ export default function App() {
       <div>
         <SideBar currentStepIndex={multiStepForm.currentStepIndex} />
       </div>
-      <div className="flex w-[50vw] px-4 max-w-[35rem] justify-center">
+      <div className="flex w-[50vw] min-w-[30rem] px-4 max-w-[35rem] justify-center">
         <multiStepForm.Step multiStepForm={multiStepForm} />
       </div>
     </div>
