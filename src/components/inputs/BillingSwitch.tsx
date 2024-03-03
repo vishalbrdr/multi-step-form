@@ -25,7 +25,7 @@ function BillingSwitch() {
           <div className="block h-6 w-12 rounded-full bg-primary-marine-blue"></div>
           <div
             className={`absolute top-1 size-4 bg-neutral-white rounded-full bg-white transition 
-            ${!isChecked ? "left-1" : "translate-x-full"}
+            ${!isChecked ? "left-1" : "translate-x-7"}
             `}
           ></div>
         </div>
