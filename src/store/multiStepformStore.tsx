@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { planOptions } from "./plans";
 
 type FormData = {
   personalInfo: {
@@ -23,12 +24,6 @@ type Actions = {
   setFormData: (data: Partial<FormData>) => void;
 };
 
-export const plans = [
-  { name: "arcade", price: { yearly: "$90/yr", monthly: "$9/mo" } },
-  { name: "advanced", price: { yearly: "$120/yr", monthly: "$12/mo" } },
-  { name: "pro", price: { yearly: "$150/yr", monthly: "$15/mo" } },
-] as const;
-
 const INITIAL_STATE: FormData = {
   personalInfo: {
     name: "",
@@ -36,7 +31,8 @@ const INITIAL_STATE: FormData = {
     phoneNumber: "",
   },
   plan: {
-    ...plans[0],
+    name: "arcade",
+    price: planOptions[0].price,
     billing: "monthly",
   },
   addons: [

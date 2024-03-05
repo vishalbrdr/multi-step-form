@@ -5,20 +5,20 @@ type PlanName = "arcade" | "advanced" | "pro";
 type RadioSelectProps = {
   plan: {
     name: PlanName;
-    price: { perYear: string; perMonth: string };
+    price: { yearly: string; monthly: string };
     icon: string;
   };
 };
 
 function RadioSelect({ plan }: RadioSelectProps) {
   const {
-    plan: { name: planName, billing },
+    plan: { name: planName, billing, price },
     setFormData,
   } = useMultiStepFormStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value as PlanName;
-    setFormData({ plan: { name: value, billing } });
+    setFormData({ plan: { name: value, billing, price } });
   };
 
   return (
@@ -39,7 +39,7 @@ function RadioSelect({ plan }: RadioSelectProps) {
             {plan.name}
           </p>
           <p className="text-neutral-lightGray">
-            {billing === "monthly" ? plan.price.perMonth : plan.price.perYear}
+            {billing === "monthly" ? plan.price.monthly : plan.price.yearly}
           </p>
           {billing === "yearly" && (
             <p className="text-xs text-primary-marine-blue">2 months free</p>
