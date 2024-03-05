@@ -2,6 +2,7 @@ import SideBar from "./components/SideBar";
 import AddOnsPickerForm from "./components/steps/AddOnsPickerForm";
 import PersonalInfoForm from "./components/steps/PersonalInfoForm";
 import PlanSelectionForm from "./components/steps/PlanSelection";
+import Summary from "./components/steps/Summary";
 import useMultiStepForm from "./hooks/useMultiStepForm";
 
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
     PersonalInfoForm,
     PlanSelectionForm,
     AddOnsPickerForm,
+    Summary,
   ]);
 
   return (

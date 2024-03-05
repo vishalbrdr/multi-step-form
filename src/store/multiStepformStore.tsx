@@ -8,6 +8,7 @@ type FormData = {
   };
   plan: {
     name: "arcade" | "advanced" | "pro";
+    price: { yearly: string; monthly: string };
     billing: "monthly" | "yearly";
   };
   addons: {
@@ -22,6 +23,12 @@ type Actions = {
   setFormData: (data: Partial<FormData>) => void;
 };
 
+export const plans = [
+  { name: "arcade", price: { yearly: "$90/yr", monthly: "$9/mo" } },
+  { name: "advanced", price: { yearly: "$120/yr", monthly: "$12/mo" } },
+  { name: "pro", price: { yearly: "$150/yr", monthly: "$15/mo" } },
+] as const;
+
 const INITIAL_STATE: FormData = {
   personalInfo: {
     name: "",
@@ -29,7 +36,7 @@ const INITIAL_STATE: FormData = {
     phoneNumber: "",
   },
   plan: {
-    name: "arcade",
+    ...plans[0],
     billing: "monthly",
   },
   addons: [
