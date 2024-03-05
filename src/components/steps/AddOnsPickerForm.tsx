@@ -2,12 +2,10 @@ import FormWrapper from "../FormWrapper";
 import FormFooter from "../FormFooter";
 import { StepProps } from "../../hooks/useMultiStepForm";
 import { useMultiStepFormStore } from "../../store/multiStepformStore";
-import checkBox from "../../assets/images/icon-checkmark.svg";
 
 function AddOnsPickerForm({ multiStepForm }: { multiStepForm: StepProps }) {
   const heading = "Pick add-ons";
   const subText = "Add-ons help enhance your gaming experience.";
-  console.log(checkBox);
 
   const {
     addons,
@@ -27,7 +25,13 @@ function AddOnsPickerForm({ multiStepForm }: { multiStepForm: StepProps }) {
 
   return (
     <FormWrapper heading={heading} subText={subText}>
-      <form className="flex flex-col h-full">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          multiStepForm.next();
+        }}
+        className="flex flex-col h-full"
+      >
         <div className="space-y-3 grow w-[25rem]">
           {addons.map((addon) => (
             <div key={addon.name}>
