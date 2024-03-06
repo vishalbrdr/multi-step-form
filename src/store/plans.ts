@@ -1,6 +1,6 @@
-import ArcadeIcon from "../../assets/images/icon-arcade.svg";
-import AdvancedIcon from "../../assets/images/icon-advanced.svg";
-import ProIcon from "../../assets/images/icon-pro.svg";
+import ArcadeIcon from "../assets/images/icon-arcade.svg";
+import AdvancedIcon from "../assets/images/icon-advanced.svg";
+import ProIcon from "../assets/images/icon-pro.svg";
 
 export const planOptions = [
   {
